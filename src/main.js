@@ -3,12 +3,12 @@ import { Object3D, Group, PointLight, AmbientLight } from "three";
 import createBackground from "./systems/background";
 import init from "./systems/init";
 import solarSystemData from "./solar_system.json";
-
+import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
 
 const [camera, renderer, scene, controls] = init();
 controls.update();
+renderer.xr.enabled = true;
 scene.background = createBackground();
-
 
 function createLight() {
   const lightGroup = new Group();
@@ -25,17 +25,18 @@ function createLight() {
 
 scene.add(createLight());
 
-
-const orbitCenters = []; 
-const rotatingBodies = []; 
+const orbitCenters = [];
+const rotatingBodies = [];
 // Soleil
 const sunData = solarSystemData.sun;
-const sun = new Sphere(sunData.radius, 32, 32, sunData.texture, { emissive: true });
+const sun = new Sphere(sunData.radius, 32, 32, sunData.texture, {
+  emissive: true,
+});
 scene.add(sun);
 rotatingBodies.push({ mesh: sun, rotationSpeed: sunData.rotationSpeed });
 
 // Planètes
-solarSystemData.planets.forEach(planetData => {
+solarSystemData.planets.forEach((planetData) => {
   const planetOrbit = new Object3D();
   planetOrbit.position.copy(sun.position);
   scene.add(planetOrbit);
@@ -45,12 +46,15 @@ solarSystemData.planets.forEach(planetData => {
   planet.rotation.x = planetData.inclination || 0;
   planetOrbit.add(planet);
 
-  orbitCenters.push({ center: planetOrbit, speed: planetData.orbitSpeed});
-  rotatingBodies.push({ mesh: planet, rotationSpeed: planetData.selfRotationSpeed });
+  orbitCenters.push({ center: planetOrbit, speed: planetData.orbitSpeed });
+  rotatingBodies.push({
+    mesh: planet,
+    rotationSpeed: planetData.selfRotationSpeed,
+  });
 
-  // Lunes 
+  // Lunes
   if (planetData.moons) {
-    planetData.moons.forEach(moonData => {
+    planetData.moons.forEach((moonData) => {
       const moonOrbit = new Object3D();
       moonOrbit.position.x = planetData.radius;
       planet.add(moonOrbit);
@@ -59,14 +63,16 @@ solarSystemData.planets.forEach(planetData => {
       moon.position.x = moonData.distance;
       moonOrbit.add(moon);
 
-      orbitCenters.push({ center: moonOrbit, speed: moonData.orbitSpeed});
-      rotatingBodies.push({ mesh: moon, rotationSpeed: moonData.selfRotationSpeed });
+      orbitCenters.push({ center: moonOrbit, speed: moonData.orbitSpeed });
+      rotatingBodies.push({
+        mesh: moon,
+        rotationSpeed: moonData.selfRotationSpeed,
+      });
     });
   }
 });
 
-
-function animate() {
+renderer.setAnimationLoop(() => {
   orbitCenters.forEach(({ center, speed }) => {
     center.rotation.y += speed;
   });
@@ -76,8 +82,7 @@ function animate() {
   });
 
   renderer.render(scene, camera);
-  requestAnimationFrame(animate);
-}
+});
 
-animate();
 document.body.appendChild(renderer.domElement);
+document.body.appendChild(VRButton.createButton(renderer));

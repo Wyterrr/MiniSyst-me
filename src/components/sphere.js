@@ -1,15 +1,19 @@
 import {
-  Mesh,
-  MeshStandardMaterial,
-  SphereGeometry,
-  TextureLoader,
-  Color
+    Mesh,
+    MeshStandardMaterial,
+    SphereGeometry,
+    TextureLoader,
+    Color
 } from "three";
 
 export default class Sphere extends Mesh {
   constructor(radius, widthSeg, heightSeg, texturePath, options = {}) {
     const geometry = new SphereGeometry(radius, widthSeg, heightSeg);
-    const texture = new TextureLoader().load("/src/public/" + texturePath);
+    const texture = new TextureLoader().load(
+      texturePath.startsWith('./')
+        ? texturePath.replace('./', import.meta.env.BASE_URL)
+        : texturePath
+    );
 
     const material = new MeshStandardMaterial({
       map: texture,
