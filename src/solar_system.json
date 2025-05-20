@@ -1,0 +1,184 @@
+{
+  "sun": {
+    "name": "Sun",
+    "radius": 2,
+    "texture": "./soleil.jpg",
+    "rotationSpeed": 0.002,
+    "emissive": true
+  },
+  "planets": [
+    {
+      "name": "Mercury",
+      "radius": 0.3,
+      "distance": 4,
+      "texture": "./mercure.jpg",
+      "orbitSpeed": 0.035,
+      "selfRotationSpeed": 0.005
+    },
+    {
+      "name": "Venus",
+      "radius": 0.6,
+      "distance": 6,
+      "texture": "./venus.jpg",
+      "orbitSpeed": 0.028,
+      "selfRotationSpeed": 0.003
+    },
+    {
+      "name": "Earth",
+      "radius": 0.7,
+      "distance": 8,
+      "texture": "./terre.jpg",
+      "orbitSpeed": 0.02,
+      "selfRotationSpeed": 0.02,
+      "inclination": 0.21,
+      "moons": [
+        {
+          "name": "Moon",
+          "radius": 0.2,
+          "distance": 1.2,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.03,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    },
+    {
+      "name": "Mars",
+      "radius": 0.4,
+      "distance": 10,
+      "texture": "./mars.jpg",
+      "orbitSpeed": 0.015,
+      "selfRotationSpeed": 0.018,
+      "moons": [
+        {
+          "name": "Phobos",
+          "radius": 0.05,
+          "distance": 0.8,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.04,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Deimos",
+          "radius": 0.03,
+          "distance": 1.0,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.035,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    },
+    {
+      "name": "Jupiter",
+      "radius": 1.4,
+      "distance": 14,
+      "texture": "./jupiter.jpg",
+      "orbitSpeed": 0.008,
+      "selfRotationSpeed": 0.03,
+      "moons": [
+        {
+          "name": "Io",
+          "radius": 0.2,
+          "distance": 2.0,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.02,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Europa",
+          "radius": 0.18,
+          "distance": 2.5,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.018,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Ganymede",
+          "radius": 0.25,
+          "distance": 3.2,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.015,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Callisto",
+          "radius": 0.24,
+          "distance": 4.0,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.012,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    },
+    {
+      "name": "Saturn",
+      "radius": 1.2,
+      "distance": 18,
+      "texture": "./saturne.jpg",
+      "orbitSpeed": 0.006,
+      "selfRotationSpeed": 0.025,
+      "moons": [
+        {
+          "name": "Titan",
+          "radius": 0.22,
+          "distance": 2.8,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.014,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Enceladus",
+          "radius": 0.1,
+          "distance": 2.0,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.018,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    },
+    {
+      "name": "Uranus",
+      "radius": 1.0,
+      "distance": 22,
+      "texture": "./uranus.jpg",
+      "orbitSpeed": 0.004,
+      "selfRotationSpeed": 0.02,
+      "moons": [
+        {
+          "name": "Titania",
+          "radius": 0.15,
+          "distance": 2.5,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.01,
+          "selfRotationSpeed": 0.01
+        },
+        {
+          "name": "Oberon",
+          "radius": 0.14,
+          "distance": 3.0,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.009,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    },
+    {
+      "name": "Neptune",
+      "radius": 1.0,
+      "distance": 26,
+      "texture": "./neptune.jpg",
+      "orbitSpeed": 0.003,
+      "selfRotationSpeed": 0.018,
+      "moons": [
+        {
+          "name": "Triton",
+          "radius": 0.18,
+          "distance": 2.6,
+          "texture": "./lune.jpeg",
+          "orbitSpeed": 0.008,
+          "selfRotationSpeed": 0.01
+        }
+      ]
+    }
+  ]
+}
