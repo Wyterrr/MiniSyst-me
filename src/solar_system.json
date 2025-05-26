@@ -200,5 +200,15 @@
         }
       ]
     }
-  ]
+  ],
+  "asteroidBelt": {
+    "name": "Main Asteroid Belt",
+    "innerRadius": 10.5,
+    "outerRadius": 12.5,
+    "thickness": 0.6,
+    "count": 1500,
+    "minSize": 0.008,
+    "maxSize": 0.06,
+    "texture": "./asteroid.jpg"
+  }
 }

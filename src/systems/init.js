@@ -15,8 +15,14 @@ export default function init() {
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; // an option to smooth the camera movement
+  controls.dampingFactor = 0.25; // the damping factor for smoothness
+  controls.screenSpacePanning = false; // prevent panning in screen space
+  controls.maxPolarAngle = Math.PI / 2; // limit vertical rotation
   controls.update();
+
   const scene = new Scene();
+
   function tweenCamera(target, duration = 1500) {
     const start = camera.position.clone();
     const startTime = performance.now();
@@ -32,6 +38,5 @@ export default function init() {
     animate();
   }
 
-  // Vous pouvez exposer tweenCamera si besoin
   return [camera, renderer, scene, controls, tweenCamera];
 }
